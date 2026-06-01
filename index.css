@@ -142,6 +142,8 @@ input, select {
   font-size: 1rem;
   transition: var(--transition-smooth);
   outline: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 input:focus, select:focus {
@@ -554,9 +556,14 @@ select option {
     align-items: flex-start;
   }
   
-  .log-form, .mock-form {
+  .log-form {
     grid-template-columns: 1fr;
-    padding: 1.2rem;
+  }
+  
+  .mock-form {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
   
   .log-item {

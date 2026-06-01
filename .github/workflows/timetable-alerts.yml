@@ -1,0 +1,49 @@
+name: Timetable Alerts
+
+on:
+  schedule:
+    # 06:30 AM IST = 01:00 UTC (Mon-Fri)
+    - cron: '0 1 * * 1-5'
+    # 07:00 AM IST = 01:30 UTC
+    - cron: '30 1 * * 1-5'
+    # 10:00 AM IST = 04:30 UTC
+    - cron: '30 4 * * 1-5'
+    # 01:30 PM IST = 08:00 UTC
+    - cron: '0 8 * * 1-5'
+    # 02:30 PM IST = 09:00 UTC
+    - cron: '0 9 * * 1-5'
+    # 05:30 PM IST = 12:00 UTC
+    - cron: '0 12 * * 1-5'
+    # 06:30 PM IST = 13:00 UTC
+    - cron: '0 13 * * 1-5'
+    # 08:00 PM IST = 14:30 UTC
+    - cron: '30 14 * * 1-5'
+    # 09:00 PM IST = 15:30 UTC
+    - cron: '30 15 * * 1-5'
+    # 11:00 PM IST = 17:30 UTC
+    - cron: '30 17 * * 1-5'
+  
+  # Allow manual trigger from GitHub Actions tab for testing
+  workflow_dispatch:
+
+jobs:
+  send-alert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Notification to ntfy
+        run: |
+          CRON="${{ github.event.schedule }}"
+          MSG="Time to Focus!"
+          
+          if [ "$CRON" = "0 1 * * 1-5" ]; then MSG="Wake up & Freshen up!"; fi
+          if [ "$CRON" = "30 1 * * 1-5" ]; then MSG="Time for NIMCET Maths (Deep Focus)!"; fi
+          if [ "$CRON" = "30 4 * * 1-5" ]; then MSG="College Time / Practice LR & Vocab!"; fi
+          if [ "$CRON" = "0 8 * * 1-5" ]; then MSG="Lunch, Travel & Rest Time!"; fi
+          if [ "$CRON" = "0 9 * * 1-5" ]; then MSG="Time for Frontend Dev (JS/React)!"; fi
+          if [ "$CRON" = "0 12 * * 1-5" ]; then MSG="Break time! Go for a walk."; fi
+          if [ "$CRON" = "0 13 * * 1-5" ]; then MSG="Time for Logical Reasoning & English!"; fi
+          if [ "$CRON" = "30 14 * * 1-5" ]; then MSG="Dinner & Family Time!"; fi
+          if [ "$CRON" = "30 15 * * 1-5" ]; then MSG="Tech Projects / Startup Work!"; fi
+          if [ "$CRON" = "30 17 * * 1-5" ]; then MSG="Revision, Planning & Sleep!"; fi
+
+          curl -d "$MSG" -H "Title: SyncTrack Schedule" -H "Tags: bell,dart" https://ntfy.sh/synctrack_sahil_alerts

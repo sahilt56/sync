@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SyncTrack - 6 Month Roadmap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <h1>Sync<span class="highlight">Track</span></h1>
+      <p class="subtitle">June - December 2026 Mastery</p>
+    </header>
+
+    <main class="main-content">
+      <!-- Progress Dashboard -->
+      <section class="module progress-module glass-card">
+        <div class="module-header">
+          <h2>Overall Progress</h2>
+          <p>6-Month Mastery Goal</p>
+        </div>
+        
+        <div class="progress-container">
+          <div class="progress-item">
+            <div class="progress-labels">
+              <span>Frontend Mastery</span>
+              <span id="techProgressText">0%</span>
+            </div>
+            <div class="progress-track">
+              <div id="techProgressBar" class="progress-fill tech-fill"></div>
+            </div>
+          </div>
+          
+          <div class="progress-item">
+            <div class="progress-labels">
+              <span>NIMCET Maths</span>
+              <span id="mathsProgressText">0%</span>
+            </div>
+            <div class="progress-track">
+              <div id="mathsProgressBar" class="progress-fill maths-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Daily Timetable (Lunch-Escape Plan) -->
+      <section class="module timetable-module">
+        <div class="module-header" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2>Daily Timetable</h2>
+            <p>Your "Lunch-Escape" Schedule</p>
+          </div>
+          <button id="enableAlertsBtn" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+            🔔 Enable Alerts
+          </button>
+        </div>
+        
+        <div class="timetable-grid glass-card">
+          <!-- Timetable Items -->
+          <div class="time-block block-gray">
+            <span class="time-slot">06:30 AM - 07:00 AM</span>
+            <span class="time-task">Wake up & Freshen up</span>
+          </div>
+          <div class="time-block block-orange">
+            <span class="time-slot">07:00 AM - 09:00 AM</span>
+            <span class="time-task"><strong>NIMCET Maths</strong> (Deep Focus)</span>
+          </div>
+          <div class="time-block block-gray">
+            <span class="time-slot">10:00 AM - 01:30 PM</span>
+            <span class="time-task">College (Practice LR/Vocab)</span>
+          </div>
+          <div class="time-block block-gray">
+            <span class="time-slot">01:30 PM - 02:30 PM</span>
+            <span class="time-task">Lunch, Travel & Rest</span>
+          </div>
+          <div class="time-block block-blue">
+            <span class="time-slot">02:30 PM - 05:30 PM</span>
+            <span class="time-task"><strong>Frontend Dev</strong> (JS/React Projects)</span>
+          </div>
+          <div class="time-block block-gray">
+            <span class="time-slot">05:30 PM - 06:30 PM</span>
+            <span class="time-task">Break, Walk & Exercise</span>
+          </div>
+          <div class="time-block block-orange">
+            <span class="time-slot">06:30 PM - 08:00 PM</span>
+            <span class="time-task"><strong>LR & English</strong></span>
+          </div>
+          <div class="time-block block-gray">
+            <span class="time-slot">08:00 PM - 09:00 PM</span>
+            <span class="time-task">Dinner & Family Time</span>
+          </div>
+          <div class="time-block block-purple">
+            <span class="time-slot">09:00 PM - 11:00 PM</span>
+            <span class="time-task"><strong>Tech Projects / Startup</strong></span>
+          </div>
+          <div class="time-block block-gray">
+            <span class="time-slot">11:00 PM - 11:30 PM</span>
+            <span class="time-task">Revision, Planning & Sleep</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Roadmap Timeline -->
+      <section class="module roadmap-module">
+        <div class="module-header">
+          <h2>6-Month Roadmap</h2>
+          <p>Track your monthly milestones</p>
+        </div>
+        <div id="roadmapTimeline" class="roadmap-timeline">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- Daily Logger -->
+      <section class="module logger-module">
+        <div class="module-header">
+          <h2>Daily Logger</h2>
+          <p>Log your daily study and coding hours</p>
+        </div>
+
+        <form id="logForm" class="log-form glass-card">
+          <div class="form-group">
+            <label for="logDate">Date</label>
+            <input type="date" id="logDate" required readonly>
+          </div>
+          
+          <div class="form-group">
+            <label for="logCategory">Category</label>
+            <select id="logCategory" required>
+              <option value="" disabled selected>Select Category...</option>
+              <option value="Frontend">Frontend Development</option>
+              <option value="NIMCET Maths">NIMCET Maths</option>
+              <option value="Logical Reasoning">Logical Reasoning</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="logTask">Task Description</label>
+            <input type="text" id="logTask" placeholder="e.g. Build basic DOM structure" required>
+          </div>
+
+          <button type="submit" class="btn-primary">Add Log Entry</button>
+        </form>
+
+        <div class="logs-container">
+          <h3>Recent Logs</h3>
+          <ul id="logsList" class="logs-list">
+            <!-- Logs will be injected here via JS -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- Mock Test Analytics -->
+      <section class="module analytics-module">
+        <div class="module-header">
+          <h2>Mock Test Analytics</h2>
+          <p>Track your exam scores</p>
+        </div>
+        
+        <div class="glass-card p-2">
+          <form id="mockTestForm" class="mock-form">
+            <div class="form-group">
+              <input type="date" id="mockDate" required>
+            </div>
+            <div class="form-group">
+              <input type="number" id="mockScore" placeholder="Score Obtained" required>
+            </div>
+            <button type="submit" class="btn-primary" style="padding: 0.8rem;">Add Score</button>
+          </form>
+          
+          <div class="chart-container">
+            <canvas id="mockTestChart"></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Chart.js for future use (Phase 2) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

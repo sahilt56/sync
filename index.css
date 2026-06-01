@@ -328,23 +328,6 @@ select option {
   100% { transform: scale(1) rotate(45deg); }
 }
 
-/* Responsive */
-@media (max-width: 640px) {
-  .log-form {
-    grid-template-columns: 1fr;
-  }
-  .header h1 {
-    font-size: 2.5rem;
-  }
-  .roadmap-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .mock-form {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* Phase 2: Progress Dashboard */
 .progress-module {
   padding: 2rem;
@@ -526,12 +509,74 @@ select option {
   background: rgba(168, 85, 247, 0.05);
 }
 
+/* --- Comprehensive Mobile Optimization --- */
 @media (max-width: 640px) {
+  .app-container {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .header {
+    padding: 1rem 0;
+  }
+  
+  .header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  /* Fix timetable header inline styles */
+  .timetable-module .module-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem;
+  }
+  
+  .timetable-module .module-header button {
+    width: 100%;
+  }
+
   .time-block {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
+
+  .roadmap-month-card {
+    padding: 1rem;
+  }
+
+  .roadmap-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .log-form, .mock-form {
+    grid-template-columns: 1fr;
+    padding: 1.2rem;
+  }
+  
+  .log-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  
+  .log-actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+  
+  .p-2 {
+    padding: 1.2rem;
+  }
+  
+  .progress-module {
+    padding: 1.2rem;
+  }
 }
-
-

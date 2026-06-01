@@ -1,4 +1,4 @@
-const CACHE_NAME = 'synctrack-cache-v1';
+const CACHE_NAME = 'synctrack-cache-v2';
 const urlsToCache = [
   '/',
   '/index.html',
